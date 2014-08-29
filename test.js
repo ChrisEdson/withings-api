@@ -1,15 +1,15 @@
 var withingsApi = require("./index");
 // test with dummy consumer and user accounts
 var oAuthSignedUrl = withingsApi.generateUrl({
-	url: "http://wbsapi.withings.net/measure",
+	url: "http://wbsapi.withings.net/v2/measure",
 	parameters: {
-		action: "getmeas",
+		action: "getactivity",
 		userid: "4459868"
 	},
-	consumer_key: "eebb1b209289cc417b2ee9b16f2c77deb1e36d3bc5521595986f37563863",
-	consumer_secret: "6ee50ee1f9b6065526b6652e3d73966c1c05343408f892392f4d68594e70",
-	access_token: "568c3302324d881c4177dfbe23e7f3203398b1043d19fb0c820734ec7b0020",
-	access_token_secret: "93899e211906677ed4667737d8f23f0bdf171766252f251b0d8d54f397bdd"
+	consumer_key: "54cc2cf01d2c828441020c4b30b8562779cf3c659e23798fe70888d9684e",
+	consumer_secret: "1d43d8be45d7d64b38f0ececfc7d6b7ce140e53706421d2b7fe83fd4cffcb1f",
+	access_token: "051c4b2c4b3b9b8cdbbe24d7560c5426d2eecf7cd8fb0e29d45df12e2c7",
+	access_token_secret: "892bd305275775ccd65fc6e38b2596c2bcd387f4104307fbbfd72542df1"
 });
 
 // TODO: run with proper test framework

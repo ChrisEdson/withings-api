@@ -6,7 +6,6 @@ var Base64 = require("crypto-js/enc-base64");
 module.exports = {
 
 	defaults: {
-		"oauth_callback": "",
 		"oauth_signature_method": "HMAC-SHA1",
 		"oauth_version": "1.0"
 	},
@@ -34,9 +33,12 @@ module.exports = {
 			"oauth_nonce": self.generateNonce(),
 			"oauth_timestamp": self.generateOAuthTimestamp(),
 			"oauth_signature_method": self.defaults["oauth_signature_method"],
-			"oauth_version": self.defaults["oauth_version"],
-			"oauth_callback": opts["oauth_callback"] || self.defaults["oauth_callback"]
+			"oauth_version": self.defaults["oauth_version"]
 		});
+
+		if (opts["callback"]) {
+			parameters["oauth_callback"] = opts["callback"];
+		}
 
 		var baseString = self.generateOAuthBaseString(opts["url"], parameters);
 		var oAuthSecret = opts["consumer_secret"] + "&" + opts["access_token_secret"];

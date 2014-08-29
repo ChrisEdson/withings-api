@@ -20,9 +20,15 @@ withingsApi.generateUrl({
 	consumer_key: "YOU APP'S KEY",
 	consumer_secret: "YOU APP'S SECRET",
 	access_token: "YOUR USER-SPECIFIC ACCESS TOKEN",
-	access_token_secret: "YOUR USER-SPECIFIC ACCESS TOKEN SECRET"
+	access_token_secret: "YOUR USER-SPECIFIC ACCESS TOKEN SECRET",
+	callback: "URL TO YOUR APP"
 });
 ```
+
+## Gotchas
+
+1. Don't pass in `callback` when requesting for activity measure (http://wbsapi.withings.net/v2/measure?action=getactivity)
+    1. Otherwise you'll get response of `{"status":503,"error":"Invalid Params"}`
 
 ## Test
 
