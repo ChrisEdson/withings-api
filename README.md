@@ -21,7 +21,8 @@ withingsApi.generateUrl({
 	consumer_secret: "YOU APP'S SECRET",
 	access_token: "YOUR USER-SPECIFIC ACCESS TOKEN",
 	access_token_secret: "YOUR USER-SPECIFIC ACCESS TOKEN SECRET",
-	callback: "URL TO YOUR APP"
+	callbackurl: "URL TO YOUR APP",
+	comment: "COMMENT FOR NOTIFICATION"
 });
 ```
 

@@ -1,6 +1,6 @@
 {
   "name": "withings-api",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A javascript module to help generate OAuth signed [Withings API](http://oauth.withings.com/api) URL. The code is adapted from the [API reference](http://oauth.withings.com/api) page.",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://bitbucket.org/openbiz/withings-api.git"
+    "url": "https://bitbucket.org/chrisedson/withings-api.git"
   },
   "keywords": [
     "withings"
