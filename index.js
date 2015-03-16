@@ -44,6 +44,14 @@ module.exports = {
 			parameters.comment = opts.comment;
 		}
 
+		if (opts.startdate) {
+			parameters.startdate = opts.startdate;
+		}
+
+		if (opts.enddate) {
+			parameters.enddate = opts.enddate;
+		}
+
 		var baseString = self.generateOAuthBaseString(opts.url, parameters);
 		var oAuthSecret = opts.consumer_secret + "&" + opts.access_token_secret;
 
