@@ -36,12 +36,16 @@ module.exports = {
 			"oauth_version": self.defaults["oauth_version"]
 		});
 
-		if (opts["callback"]) {
-			parameters["oauth_callback"] = opts["callback"];
+		if (opts.callbackurl) {
+			parameters.callbackurl = opts.callbackurl;
 		}
 
-		var baseString = self.generateOAuthBaseString(opts["url"], parameters);
-		var oAuthSecret = opts["consumer_secret"] + "&" + opts["access_token_secret"];
+		if (opts.comment) {
+			parameters.comment = opts.comment;
+		}
+
+		var baseString = self.generateOAuthBaseString(opts.url, parameters);
+		var oAuthSecret = opts.consumer_secret + "&" + opts.access_token_secret;
 
 		parameters["oauth_signature"] = self.generateOAuthSignature(baseString, oAuthSecret);
 
