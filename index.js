@@ -14,26 +14,26 @@ module.exports = {
 		var self = this;
 
 		var misses = self.findMisses(opts, [
-			"url", 
-			"consumer_key", 
+			"url",
+			"consumer_key",
 			"consumer_secret",
 			"access_token",
 			"access_token_secret"
 		]);
 
-		if (misses.length != 0) {
+		if (misses.length !== 0) {
 			console.log("Missing options " + misses.join(", "));
 			return "";
 		}
 
 		// opts.parameters is optional
-		var parameters = merge((opts["parameters"] || {}), {
-			"oauth_consumer_key": opts["consumer_key"],
-			"oauth_token": opts["access_token"],
+		var parameters = merge((opts.parameters || {}), {
+			"oauth_consumer_key": opts.consumer_key,
+			"oauth_token": opts.access_token,
 			"oauth_nonce": self.generateNonce(),
 			"oauth_timestamp": self.generateOAuthTimestamp(),
-			"oauth_signature_method": self.defaults["oauth_signature_method"],
-			"oauth_version": self.defaults["oauth_version"]
+			"oauth_signature_method": self.defaults.oauth_signature_method,
+			"oauth_version": self.defaults.oauth_version
 		});
 
 		if (opts.callbackurl) {
@@ -47,10 +47,10 @@ module.exports = {
 		var baseString = self.generateOAuthBaseString(opts.url, parameters);
 		var oAuthSecret = opts.consumer_secret + "&" + opts.access_token_secret;
 
-		parameters["oauth_signature"] = self.generateOAuthSignature(baseString, oAuthSecret);
+		parameters.oauth_signature = self.generateOAuthSignature(baseString, oAuthSecret);
 
 		var params = self.generateUrlParameters(parameters);
-		var url = opts["url"] + "?" + params;
+		var url = opts.url + "?" + params;
 
 		return url;
 	},
@@ -69,7 +69,7 @@ module.exports = {
 		keys.forEach(function(key) {
 			var value = opts[key];
 
-			if (value == undefined || value == null) {
+			if (value === undefined || value === null) {
 				misses.push(key);
 			}
 		});
@@ -82,7 +82,7 @@ module.exports = {
 	},
 
 	generateOAuthTimestamp: function generateOAuthTimestamp() {
-		return Math.round((new Date).getTime() / 1000);
+		return Math.round((new Date()).getTime() / 1000);
 	},
 
 	generateOAuthBaseString: function generateOAuthBaseString(url, parameters) {
